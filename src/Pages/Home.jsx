@@ -1,4 +1,4 @@
-// API url https://api.jsonbin.io/v3/b/68cec815d0ea881f40845308
+
 
 import { Link } from "react-router";
 
@@ -6,23 +6,36 @@ import { Link } from "react-router";
 const Home = () => {
 
 
-return (
-<>
-<header>
+    return (
+        <>
+            <header>
 
-<h2 className="header">DoggyDaycare</h2>
+                <h2 className="header">DoggyDaycare</h2>
 
-</header>
+            </header>
 
-<body>
-    
-    <Link to="/catalog" className="button_our_dogs">Our dogs</Link>
+            <main>
 
-</body>
+                <div className="welcome_page">
 
-</>
+                    <p> Welcome to DoggyDaycare! Here you can see all our registered dogs.<br />
+                        Just click on the button bellow to come to our catalog page. </p>
 
-)
+
+                    <Link to="/catalog" className="button_our_dogs">Our dogs</Link>
+
+
+                    <p>Run by Vandringskompis</p>
+
+
+
+
+                </div>
+            </main>
+
+        </>
+
+    )
 }
 
 export default Home;
