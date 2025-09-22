@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 const Catalog = () => {
 
@@ -30,18 +31,18 @@ return (
 </header>
 <main>
     <div className="dog_catalog">
-        
             {Array.isArray(dogs) && dogs.map((dog) => (
                 <div className="dog_card" key={dog.chipNumber}>
+                    <Link to= "/Catalog/DogInfo" state={{dog}} >
                     <img className="dog_img" src={dog.img || "/dog-default.png"} alt= {dog.name} 
                     onError={(e) => {
                          e.target.onerror = null;
                          e.target.src = "/dog-default.png"
-  }} />
+                        }} />
+                        </Link>
                     <p> {dog.name}</p>
                 </div>
             ))}
-        
     </div>
 </main>
 
