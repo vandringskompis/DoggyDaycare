@@ -14,11 +14,11 @@ return (
 
 </header>
 
-<body>
+<main>
 
     <Link to="/catalog" className="button_our_dogs">Our dogs</Link>
 
-</body>
+</main>
 
 </>
 
