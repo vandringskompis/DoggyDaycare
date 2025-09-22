@@ -1,4 +1,4 @@
-// API url https://api.jsonbin.io/v3/b/68cec815d0ea881f40845308
+
 
 import { Link } from "react-router";
 
@@ -15,7 +15,7 @@ return (
 </header>
 
 <body>
-    
+
     <Link to="/catalog" className="button_our_dogs">Our dogs</Link>
 
 </body>

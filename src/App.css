@@ -14,7 +14,7 @@ h2 {
   border-radius: 100px;
   padding-left: 30px;
   padding-right: 30px;
-  font-size: 150px;
+  font-size: 100px;
   
 }
 
@@ -26,7 +26,7 @@ h2 {
 .button_our_dogs {
   background-color: #D9C99A;
   border-radius: 2000px;
-  padding: 100px;
+  padding: 60px;
   font-size: 100px;
   font-family: monospace;
   color: #5A5945;
@@ -36,3 +36,10 @@ h2 {
 .button_our_dogs:hover {
   background-color: #5A5945;
 }
+
+.dog_catalog {
+  color: #070603;
+  background-color: #D9C99A;
+
+}
+
