@@ -37,9 +37,30 @@ h2 {
   background-color: #5A5945;
 }
 
-.dog_catalog {
-  color: #070603;
-  background-color: #D9C99A;
+.dog_img {
+  width: 150px;
+  height: 120px;
+  border-radius: 10px;
+  border: #5A5945  solid 2px;
+}
 
+.dog_catalog {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  color: #070603;
+  border-radius: 20px;
+  justify-content: space-around;
+
+}
+
+.dog_card {
+  background-color: #D9C99A;
+  border-radius: 30px;
+  border: #5A5945 solid 2px;
+  padding: 13px;
+  margin: 10px;
+  font-family: monospace;
+  font-size: 20px;
 }
 

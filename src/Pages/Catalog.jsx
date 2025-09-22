@@ -29,17 +29,19 @@ return (
 <h2>Our dogs</h2>
 </header>
 <main>
-    <div>
-        <ul>
+    <div className="dog_catalog">
+        
             {Array.isArray(dogs) && dogs.map((dog) => (
-                <div className="dog_catalog">
-                <li key={dog.chipNumber}>
-                    <img src={dog.img} ></img>
+                <div className="dog_card" key={dog.chipNumber}>
+                    <img className="dog_img" src={dog.img || "/dog-default.png"} alt= {dog.name} 
+                    onError={(e) => {
+                         e.target.onerror = null;
+                         e.target.src = "/dog-default.png"
+  }} />
                     <p> {dog.name}</p>
-                    </li>
                 </div>
             ))}
-        </ul>
+        
     </div>
 </main>
 
