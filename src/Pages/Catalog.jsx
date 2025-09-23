@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import defaultImg from '../assets/no-image-default.png';
+
 
 const Catalog = () => {
 
@@ -34,10 +36,10 @@ return (
             {Array.isArray(dogs) && dogs.map((dog) => (
                 <div className="dog_card" key={dog.chipNumber}>
                     <Link to= "/Catalog/DogInfo" state={{dog}} >
-                    <img className="dog_img" src={dog.img || "/dog-default.png"} alt= {dog.name} 
+                    <img className="dog_img" src={dog.img || defaultImg} alt= {dog.name} 
                     onError={(e) => {
                          e.target.onerror = null;
-                         e.target.src = "/dog-default.png"
+                         e.target.src = defaultImg
                         }} />
                         </Link>
                     <p> {dog.name}</p>
