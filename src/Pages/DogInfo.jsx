@@ -1,4 +1,5 @@
 import { useLocation } from "react-router";
+import defaultImg from '../assets/no-image-default.png';
 
 const DogInfo = () => {
 
@@ -10,10 +11,10 @@ const DogInfo = () => {
         <>
             <div className="DogInfo">
                  <p id="dogName"> {dog.name}  </p>
-                <img className="dog_img_DogInfo" src={dog.img || "/dog-default.png"} alt={dog.name}
+                <img className="dog_img_DogInfo" src={dog.img || defaultImg} alt={dog.name}
                     onError={(e) => {
                         e.target.onerror = null;
-                        e.target.src = "/dog-default.png"
+                        e.target.src = defaultImg
                     }} />
                    
                 <div className="Info">
