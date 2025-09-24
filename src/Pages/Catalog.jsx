@@ -10,6 +10,8 @@ const Catalog = () => {
 
     const [dogs, setDogs] = useState([]);
     const [search, setSearch] = useState('');
+    const [picker, setPicker] = useState('name')
+
 
     useEffect(() => {
 
@@ -27,11 +29,14 @@ const Catalog = () => {
 
     }, [])
 
-    const filteredDogs = dogs.filter((dog) => dog.name.toLowerCase().includes(search.toLowerCase()));
+    const filteredDogs = dogs.filter((dog) => {
+        const pickerCheck = dog[picker];
+        return pickerCheck?.toString().toLowerCase().includes(search.toLowerCase());
+
+    })
 
     return (
         <>
-
             <header>
                 <h2>Our dogs</h2>
             </header>
@@ -39,9 +44,21 @@ const Catalog = () => {
 
                 <div>
                     <input type="text" className="search_field"
-                        placeholder="Search..."
+                        placeholder={`Search by ${picker}`}
                         value={search}
                         onChange={(e) => setSearch(e.target.value)} />
+
+                    <select className="picker"
+                        value={picker}
+                        onChange={(e) => setPicker(e.target.value)}
+                    >
+                        <option value="name">Name</option>
+                        <option value="sex">Sex</option>
+                        <option value="breed">Breed</option>
+                        <option value="present">Present</option>
+                        <option value="age">Age</option>
+
+                    </select>
 
                 </div>
                 <div className="dog_catalog">
@@ -57,9 +74,9 @@ const Catalog = () => {
                             <p> {dog.name}</p>
                         </div>
                     ))
-                ) : ( 
-                    <p className="no_dogs">No dogs found</p>
-                )}
+                    ) : (
+                        <p className="no_dogs">No dogs found</p>
+                    )}
                 </div>
             </main>
 
