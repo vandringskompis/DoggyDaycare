@@ -10,7 +10,8 @@ const Catalog = () => {
 
     const [dogs, setDogs] = useState([]);
     const [search, setSearch] = useState('');
-    const [picker, setPicker] = useState('name')
+    const [picker, setPicker] = useState('name');
+    const [presence, setPresence] = useState('all');
 
 
     useEffect(() => {
@@ -31,7 +32,11 @@ const Catalog = () => {
 
     const filteredDogs = dogs.filter((dog) => {
         const pickerCheck = dog[picker];
-        return pickerCheck?.toString().toLowerCase().includes(search.toLowerCase());
+        const pickerValue = pickerCheck?.toString().toLowerCase().includes(search.toLowerCase());
+
+        const presenceValue = presence === 'all' || presence === 'present' && dog.present === true ||
+            (presence === 'absent' && dog.present === false)
+        return pickerValue && presenceValue;
 
     })
 
@@ -55,12 +60,18 @@ const Catalog = () => {
                         <option value="name">Name</option>
                         <option value="sex">Sex</option>
                         <option value="breed">Breed</option>
-                        <option value="present">Present</option>
                         <option value="age">Age</option>
 
                     </select>
 
                 </div>
+
+                <div className="present_buttons">
+                    <button className={presence === 'all' ? 'active' : ''} onClick={() => setPresence('all')}>All</button>
+                    <button className={presence === 'present' ? 'active' : ''} onClick={() => setPresence('present')}>Present</button>
+                    <button className={presence === 'absent' ? 'active' : ''} onClick={() => setPresence('absent')}>Absent</button>
+                </div>
+
                 <div className="dog_catalog">
                     {filteredDogs.length > 0 ? (filteredDogs.map((dog) => (
                         <div className="dog_card" key={dog.chipNumber}>
