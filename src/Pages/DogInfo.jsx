@@ -10,7 +10,7 @@ const DogInfo = () => {
 
     return (
         <>
-            <div className="DogInfo">
+            <div className="Dog_Card">
                  <p id="dogName"> {dog.name}  </p>
                 <img className="dog_img_DogInfo" src={dog.img || defaultImg} alt={dog.name}
                     onError={(e) => {
@@ -24,6 +24,7 @@ const DogInfo = () => {
                         <p> Sex: {dog.sex}  </p>
                         <p> Breed: {dog.breed}  </p>
                         <p> Present: {dog.present ? "Yes" : "No"}  </p>
+                        <p> Age: {dog.age}  </p>
                         <p> Chip number: {dog.chipNumber}  </p>
                     </div>
                     <div className="Owner">
@@ -31,8 +32,6 @@ const DogInfo = () => {
                         <p> Phone number: {dog.owner.phoneNumber}  </p>
                     </div>
                 </div>
-
-
             </div>
         </>
     )

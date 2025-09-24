@@ -8,8 +8,14 @@ const Catalog = () => {
 
     const apiUrl = 'https://api.jsonbin.io/v3/b/68cec815d0ea881f40845308';
 
-    const [dogs, setDogs] = useState([]);
+    const [dogs, setDogs] = useState([]); 
+    const [search, setSearch] = useState('');
+    const [picker, setPicker] = useState('name');
+    const [presence, setPresence] = useState('all');
 
+/**
+ * Fetch all dogs from API. 
+ */
     useEffect(() => {
 
         const fetchAllDogs = async () => {
@@ -25,32 +31,73 @@ const Catalog = () => {
         console.log('Fetching dogs')
 
     }, [])
+/**
+ * filter based on search text + presence
+ */
+    const filteredDogs = dogs.filter((dog) => {
+
+        // filter based on picker
+        const pickerCheck = dog[picker];
+        const pickerValue = pickerCheck?.toString().toLowerCase().includes(search.toLowerCase());
+
+        // filter based on presence
+        const presenceValue = presence === 'all' || (presence === 'present' && dog.present === true) ||
+            (presence === 'absent' && dog.present === false)
+        return pickerValue && presenceValue;
+
+    })
 
     return (
         <>
-            <div className="catalog">
+            <header>
+                <h2>Our dogs</h2>
+            </header>
+            <main>
 
+                <div>
+                    
+                    <input type="text" className="search_field"
+                        placeholder={`Search by ${picker}`}
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)} />
 
-                <header>
-                    <h2>Our dogs</h2>
-                </header>
-                <main>
-                    <div className="dog_catalog">
-                        {Array.isArray(dogs) && dogs.map((dog) => (
-                            <div className="dog_card" key={dog.chipNumber}>
-                                <Link to="/Catalog/DogInfo" state={{ dog }} >
-                                    <img className="dog_img" src={dog.img || defaultImg} alt={dog.name}
-                                        onError={(e) => {
-                                            e.target.onerror = null;
-                                            e.target.src = defaultImg
-                                        }} />
-                                </Link>
-                                <p> {dog.name}</p>
-                            </div>
-                        ))}
-                    </div>
-                </main>
-            </div>
+                    <select className="picker"
+                        value={picker}
+                        onChange={(e) => setPicker(e.target.value)}
+                    >
+                        <option value="name">Name</option>
+                        <option value="sex">Sex</option>
+                        <option value="breed">Breed</option>
+                        <option value="age">Age</option>
+
+                    </select>
+
+                </div>
+
+                <div className="present_buttons">
+                    <button className={presence === 'all' ? 'active' : ''} onClick={() => setPresence('all')}>All</button>
+                    <button className={presence === 'present' ? 'active' : ''} onClick={() => setPresence('present')}>Present</button>
+                    <button className={presence === 'absent' ? 'active' : ''} onClick={() => setPresence('absent')}>Absent</button>
+                </div>
+
+                <div className="dog_catalog">
+                    {filteredDogs.length > 0 ? (filteredDogs.map((dog) => (
+                        <div className="dog_card" key={dog.chipNumber}>
+                            <Link to="/Catalog/DogInfo" state={{ dog }} >
+                                <img className="dog_img" src={dog.img || defaultImg} alt={dog.name}
+                                    onError={(e) => {
+                                        e.target.onerror = null;
+                                        e.target.src = defaultImg
+                                    }} />
+                            </Link>
+                            <p> {dog.name}</p>
+                        </div>
+                    ))
+                    ) : (
+                        <p className="no_dogs">No dogs found</p>
+                    )}
+                </div>
+            </main>
 
         </>
 
