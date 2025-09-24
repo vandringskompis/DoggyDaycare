@@ -8,12 +8,14 @@ const Catalog = () => {
 
     const apiUrl = 'https://api.jsonbin.io/v3/b/68cec815d0ea881f40845308';
 
-    const [dogs, setDogs] = useState([]);
+    const [dogs, setDogs] = useState([]); 
     const [search, setSearch] = useState('');
     const [picker, setPicker] = useState('name');
     const [presence, setPresence] = useState('all');
 
-
+/**
+ * Fetch all dogs from API. 
+ */
     useEffect(() => {
 
         const fetchAllDogs = async () => {
@@ -29,12 +31,17 @@ const Catalog = () => {
         console.log('Fetching dogs')
 
     }, [])
-
+/**
+ * filter based on search text + presence
+ */
     const filteredDogs = dogs.filter((dog) => {
+
+        // filter based on picker
         const pickerCheck = dog[picker];
         const pickerValue = pickerCheck?.toString().toLowerCase().includes(search.toLowerCase());
 
-        const presenceValue = presence === 'all' || presence === 'present' && dog.present === true ||
+        // filter based on presence
+        const presenceValue = presence === 'all' || (presence === 'present' && dog.present === true) ||
             (presence === 'absent' && dog.present === false)
         return pickerValue && presenceValue;
 
@@ -48,6 +55,7 @@ const Catalog = () => {
             <main>
 
                 <div>
+                    
                     <input type="text" className="search_field"
                         placeholder={`Search by ${picker}`}
                         value={search}
