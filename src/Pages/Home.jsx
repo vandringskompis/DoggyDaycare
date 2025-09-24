@@ -1,5 +1,4 @@
-
-
+import './Home.css';
 import { Link } from "react-router";
 
 
@@ -21,14 +20,9 @@ const Home = () => {
                     <p> Welcome to DoggyDaycare! Here you can see all our registered dogs.<br />
                         Just click on the button bellow to come to our catalog page. </p>
 
-
                     <Link to="/catalog" className="button_our_dogs">Our dogs</Link>
 
-
                     <p>Run by Vandringskompis</p>
-
-
-
 
                 </div>
             </main>
