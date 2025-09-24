@@ -5,8 +5,33 @@
   text-align: center;
 }
 
+@media (max-width: 800px) {
+
 h2 {
-  display: inline-block;
+  display: inline-flex;
+  background-color: rgb(203, 225, 211);
+  color: rgb(20, 51, 63);
+  font-family: monospace;
+  border: #5A5945 solid 2px;
+  border-radius: 100px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 60px;
+}
+
+.dog_img {
+  width: 150px;
+  height: 120px;
+  border-radius: 10px;
+  border: rgb(20, 51, 63)  solid 2px;
+}
+
+}
+
+@media (min-width: 801px) {
+
+h2 {
+  display: inline-flex;
   background-color: rgb(203, 225, 211);
   color: rgb(20, 51, 63);
   font-family: monospace;
@@ -29,6 +54,7 @@ h2 {
 }
 
 
+}
 
  
 

@@ -1,29 +1,55 @@
+@media (max-width: 800px) {
+    .dog_catalog {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        color: rgb(20, 51, 63);
+        border-radius: 20px;
+        justify-content: space-around;
 
+    }
 
-.dog_catalog {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  color: rgb(20, 51, 63);
-  border-radius: 20px;
-  justify-content: space-around;
+    .dog_card {
+        background-color: rgb(203, 225, 211);
+        border-radius: 30px;
+        border: #5A5945 solid 2px;
+        padding: 10px;
+        margin: 7px;
+        font-family: monospace;
+        font-size: 20px;
+    }
 
+    .dog_card:hover {
+        background-color: rgb(20, 51, 63);
+        border: #5A5945 solid 2px;
+        color: #070603;
+    }
 }
 
-.dog_card {
-  background-color:rgb(203, 225, 211);
-  border-radius: 30px;
-  border: #5A5945 solid 2px;
-  padding: 13px;
-  margin: 10px;
-  font-family: monospace;
-  font-size: 20px;
+@media (min-width: 801px) {
+    .dog_catalog {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        color: rgb(20, 51, 63);
+        border-radius: 20px;
+        justify-content: space-around;
+
+    }
+
+    .dog_card {
+        background-color: rgb(203, 225, 211);
+        border-radius: 30px;
+        border: #5A5945 solid 2px;
+        padding: 13px;
+        margin: 10px;
+        font-family: monospace;
+        font-size: 20px;
+    }
+
+    .dog_card:hover {
+        background-color: rgb(20, 51, 63);
+        border: #5A5945 solid 2px;
+        color: #070603;
+    }
 }
-
-.dog_card:hover {
-  background-color: rgb(20, 51, 63);
-  border: #5A5945 solid 2px;
-  color: #070603;
-}
-
-
