@@ -30,11 +30,17 @@ const Catalog = () => {
         <>
             <div className="catalog">
 
-
                 <header>
                     <h2>Our dogs</h2>
                 </header>
                 <main>
+
+                    <div>
+                        <input type="text" className="search_field" 
+                        placeholder="Search..."/>
+                        <button className="search_button">Search</button>
+
+                    </div>
                     <div className="dog_catalog">
                         {Array.isArray(dogs) && dogs.map((dog) => (
                             <div className="dog_card" key={dog.chipNumber}>
