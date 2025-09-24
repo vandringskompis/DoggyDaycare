@@ -14,14 +14,14 @@ h2 {
   font-family: monospace;
   border: #5A5945 solid 2px;
   border-radius: 100px;
-  padding-left: 30px;
-  padding-right: 30px;
-  font-size: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 50px;
 }
 
 .dog_img {
-  width: 150px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 10px;
   border: rgb(20, 51, 63)  solid 2px;
 }
