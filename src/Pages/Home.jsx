@@ -9,7 +9,7 @@ const Home = () => {
         <>
             <header>
 
-                <h2 className="header">DoggyDaycare</h2>
+                <h2 className="header"> Doggy Daycare</h2>
 
             </header>
 
