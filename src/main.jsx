@@ -7,6 +7,7 @@ import Home from './Pages/Home.jsx'
 import Catalog from './Pages/Catalog.jsx'
 import DogInfo from './Pages/DogInfo.jsx'
 
+
 const router = createHashRouter([
 
   {

@@ -1,5 +1,6 @@
 import { useLocation } from "react-router";
 import defaultImg from '../assets/no-image-default.png';
+import './DogInfo.css';
 
 const DogInfo = () => {
 
