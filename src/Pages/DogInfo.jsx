@@ -21,9 +21,9 @@ const DogInfo = () => {
                 <div className="Info">
                     <div className="Dog">
                         
-                        <p> Sex: {dog.sex}  </p>
+                        <p> Gender: {dog.sex}  </p>
                         <p> Breed: {dog.breed}  </p>
-                        <p> Present: {dog.present ? "Yes" : "No"}  </p>
+                        <p> Present: {dog.present ? "yes" : "no"}  </p>
                         <p> Age: {dog.age}  </p>
                         <p> Chip number: {dog.chipNumber}  </p>
                     </div>
